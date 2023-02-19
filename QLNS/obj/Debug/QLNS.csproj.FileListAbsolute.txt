@@ -1,0 +1,13 @@
+C:\Users\tuank\source\repos\QLNS\bin\Debug\QLNS.exe.config
+C:\Users\tuank\source\repos\QLNS\bin\Debug\QLNS.exe
+C:\Users\tuank\source\repos\QLNS\bin\Debug\QLNS.pdb
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.csproj.AssemblyReference.cache
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.csproj.SuggestedBindingRedirects.cache
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.Properties.Resources.resources
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.csproj.GenerateResource.cache
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.csproj.CoreCompileInputs.cache
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.exe
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.pdb
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.FormAdmin.resources
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.Form3.resources
+C:\Users\tuank\source\repos\QLNS\obj\Debug\QLNS.Form2.resources
