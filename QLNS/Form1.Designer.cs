@@ -41,6 +41,8 @@
             this.toolStripButton_Remove = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.btnExcelImport = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -54,25 +56,28 @@
             "Tên",
             "Chức Vụ",
             "Bộ Phận - Đơn vị"});
-            this.comboBox1.Location = new System.Drawing.Point(224, 86);
+            this.comboBox1.Location = new System.Drawing.Point(254, 70);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.Size = new System.Drawing.Size(92, 21);
             this.comboBox1.TabIndex = 14;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 87);
+            this.textBox1.Location = new System.Drawing.Point(73, 71);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 22);
+            this.textBox1.Size = new System.Drawing.Size(177, 20);
             this.textBox1.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 88);
+            this.label1.Location = new System.Drawing.Point(11, 72);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 18);
+            this.label1.Size = new System.Drawing.Size(58, 15);
             this.label1.TabIndex = 13;
             this.label1.Text = "Tìm kiếm";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -80,11 +85,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 130);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 106);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1160, 371);
+            this.dataGridView1.Size = new System.Drawing.Size(870, 301);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
@@ -96,7 +102,8 @@
             this.trangChủToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1184, 28);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(888, 24);
             this.menuStrip2.TabIndex = 17;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
@@ -104,7 +111,7 @@
             // trangChủToolStripMenuItem1
             // 
             this.trangChủToolStripMenuItem1.Name = "trangChủToolStripMenuItem1";
-            this.trangChủToolStripMenuItem1.Size = new System.Drawing.Size(87, 24);
+            this.trangChủToolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
             this.trangChủToolStripMenuItem1.Text = "Trang chủ";
             // 
             // toolStrip1
@@ -116,10 +123,12 @@
             this.toolStripButton2,
             this.toolStripButton_Remove,
             this.toolStripButton3,
-            this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStripButton4,
+            this.btnExcelImport,
+            this.toolStripButton5});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1184, 53);
+            this.toolStrip1.Size = new System.Drawing.Size(888, 43);
             this.toolStrip1.TabIndex = 18;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -177,18 +186,43 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(50, 50);
             this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
+            // btnExcelImport
+            // 
+            this.btnExcelImport.AutoSize = false;
+            this.btnExcelImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnExcelImport.Image = global::QLNS.Properties.Resources.Excel_Import;
+            this.btnExcelImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExcelImport.Name = "btnExcelImport";
+            this.btnExcelImport.Size = new System.Drawing.Size(50, 50);
+            this.btnExcelImport.Text = "Nhập Excel";
+            this.btnExcelImport.Click += new System.EventHandler(this.toolStripButton6_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.AutoSize = false;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Enabled = false;
+            this.toolStripButton5.Image = global::QLNS.Properties.Resources.OIP;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(50, 50);
+            this.toolStripButton5.Text = "Xuất Excel";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click_2);
             // 
             // FormAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 513);
+            this.ClientSize = new System.Drawing.Size(888, 417);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý nhân sự";
@@ -216,6 +250,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton_Remove;
+        private System.Windows.Forms.ToolStripButton btnExcelImport;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }
 
