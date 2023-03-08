@@ -19,7 +19,7 @@ namespace QLNS
         // khởi tạo kết nối
         SqlConnection conn;
         SqlCommand cmd;
-        String str = "Data Source=DESKTOP-BH3VIDG;Initial Catalog=QLNS_v2;Integrated Security=True";
+        String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -191,7 +191,7 @@ namespace QLNS
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Update thất bại");
+                    MessageBox.Show("Update thất bại: " + ex);
                 }
             }
         }

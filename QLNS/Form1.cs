@@ -16,7 +16,7 @@ namespace QLNS
         // khởi tạo kết nối
         SqlConnection conn;
         SqlCommand cmd;
-        String str = "Data Source=DESKTOP-BH3VIDG;Initial Catalog=QLNS_v2;Integrated Security=True";
+        String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -179,9 +179,30 @@ namespace QLNS
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Không thể xóa nhân viên");
+                    MessageBox.Show("Không thể xóa nhân viên: " + ex);
                 }
             }        
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            Form4 f4 = new Form4();
+            f4.Show();
+        }
+
+        private void toolStripButton5_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }
