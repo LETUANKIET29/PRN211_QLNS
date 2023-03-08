@@ -22,4 +22,4 @@ packages/
 *.vs/
 
 # Made by us 
-*.DatabaseConfig.cs
+*QLNS/DatabaseConfig.cs
