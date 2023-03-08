@@ -108,7 +108,7 @@ namespace QLNS
                 conn.Open();
 
                 // Lặp qua các dòng trong DataGridView và thêm dữ liệu vào CSDL
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
                 {
                     // Lấy dữ liệu từ DataGridView
                     String name = dataGridView1.Rows[i].Cells[0].Value.ToString();
@@ -155,9 +155,8 @@ namespace QLNS
 
                     // Thực thi câu lệnh SQL
                     command.ExecuteNonQuery();
-
-                    MessageBox.Show("Đã thêm thành công!!");
                 }
+                MessageBox.Show("Đã thêm thành công!!");
             }
             catch (Exception ex)
             {
@@ -165,7 +164,10 @@ namespace QLNS
             }
             finally
             {
+                FormAdmin f1 = new FormAdmin();
+                f1.loadData();
                 conn.Close();
+                this.Close();
             }
         }
 

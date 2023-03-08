@@ -14,9 +14,10 @@ namespace QLNS
     public partial class Form2 : Form
     {
         // khởi tạo kết nối
-        SqlConnection conn;
+        //SqlConnection conn;
         SqlCommand cmd;
-        String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
+        SqlConnection conn = ConnectionHelper.GetConnection();
+        //String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -52,7 +53,7 @@ namespace QLNS
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(str);
+            //conn = new SqlConnection(str);
             conn.Open();
         }
     }

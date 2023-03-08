@@ -14,9 +14,10 @@ namespace QLNS
     public partial class FormAdmin : Form
     {
         // khởi tạo kết nối
-        SqlConnection conn;
+        //SqlConnection conn;
         SqlCommand cmd;
-        String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
+        SqlConnection conn = ConnectionHelper.GetConnection();
+        //String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -55,9 +56,10 @@ namespace QLNS
 
         private void FormAdmin_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(str);
+            //conn = new SqlConnection(str);
             conn.Open();
             loadData();
+            conn.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -150,9 +152,10 @@ namespace QLNS
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-            conn = new SqlConnection(str);
+            //conn = new SqlConnection(str);
             conn.Open();
             loadData();
+            conn.Close();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -203,6 +206,37 @@ namespace QLNS
         private void toolStripButton5_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                // Tạo câu lệnh SQL với chuỗi tìm kiếm đầy đủ và truyền giá trị vào trước đó
+                string sql = "Select * From Developer Where Name Like '%@Name%'";
+                SqlCommand command = new SqlCommand(sql, conn);
+                command.Parameters.AddWithValue("@Name", txtSearch.Text);
+
+                // Thực thi câu lệnh SQL
+                command.ExecuteNonQuery();
+                loadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không tìm thấy, vui lòng thử lại" + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi truy vấn
+                conn.Close();
+            }
         }
     }
 }

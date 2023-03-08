@@ -17,9 +17,9 @@ namespace QLNS
     public partial class Form3 : Form
     {
         // khởi tạo kết nối
-        SqlConnection conn;
+        SqlConnection conn = ConnectionHelper.GetConnection();
         SqlCommand cmd;
-        String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
+        //String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -121,7 +121,7 @@ namespace QLNS
             comboBox_Bangcap.Text = _certificate;
 
             //  khởi động kết nối
-            conn = new SqlConnection(str);
+            //conn = new SqlConnection(str);
             conn.Open();
         }
 
