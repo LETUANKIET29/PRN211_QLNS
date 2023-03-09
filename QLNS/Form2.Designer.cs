@@ -37,7 +37,6 @@
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.textBox_sdt = new System.Windows.Forms.TextBox();
             this.textBox_diachi = new System.Windows.Forms.TextBox();
-            this.textBox_ngaysinh = new System.Windows.Forms.TextBox();
             this.textBox_Hovaten = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -55,6 +54,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox_Bangcap = new System.Windows.Forms.ComboBox();
+            this.dateDOB = new System.Windows.Forms.DateTimePicker();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -145,14 +146,6 @@
             this.textBox_diachi.Name = "textBox_diachi";
             this.textBox_diachi.Size = new System.Drawing.Size(345, 20);
             this.textBox_diachi.TabIndex = 62;
-            // 
-            // textBox_ngaysinh
-            // 
-            this.textBox_ngaysinh.Location = new System.Drawing.Point(238, 221);
-            this.textBox_ngaysinh.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox_ngaysinh.Name = "textBox_ngaysinh";
-            this.textBox_ngaysinh.Size = new System.Drawing.Size(182, 20);
-            this.textBox_ngaysinh.TabIndex = 61;
             // 
             // textBox_Hovaten
             // 
@@ -330,11 +323,20 @@
             this.comboBox_Bangcap.Size = new System.Drawing.Size(167, 21);
             this.comboBox_Bangcap.TabIndex = 73;
             // 
+            // dateDOB
+            // 
+            this.dateDOB.Location = new System.Drawing.Point(238, 219);
+            this.dateDOB.Name = "dateDOB";
+            this.dateDOB.Size = new System.Drawing.Size(182, 20);
+            this.dateDOB.TabIndex = 74;
+            this.dateDOB.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 464);
+            this.Controls.Add(this.dateDOB);
             this.Controls.Add(this.comboBox_Bangcap);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label_tag2_manv);
@@ -345,7 +347,6 @@
             this.Controls.Add(this.textBox_email);
             this.Controls.Add(this.textBox_sdt);
             this.Controls.Add(this.textBox_diachi);
-            this.Controls.Add(this.textBox_ngaysinh);
             this.Controls.Add(this.textBox_Hovaten);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
@@ -383,7 +384,6 @@
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.TextBox textBox_sdt;
         private System.Windows.Forms.TextBox textBox_diachi;
-        private System.Windows.Forms.TextBox textBox_ngaysinh;
         private System.Windows.Forms.TextBox textBox_Hovaten;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -401,5 +401,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox_Bangcap;
+        private System.Windows.Forms.DateTimePicker dateDOB;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

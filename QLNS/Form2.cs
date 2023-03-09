@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QLNS
 {
@@ -32,12 +33,16 @@ namespace QLNS
         {
             int gender = comboBox_gioitinh.Text == "Nam" ? 0 : 1;
             int status = comboBox_trangthai.Text == "Đang làm việc" ? 1 : 0;
+
+            // Cài đặt DateTimePicker chỉ hiển thị ngày tháng
+            dateDOB.Format = DateTimePickerFormat.Short;
+
             try
             {
                 cmd = conn.CreateCommand();
                 cmd.CommandText = "" +
                     "INSERT INTO [dbo].[Developer] \r\n([Name], [Gender], [Birthday], [Phone], [Email], [CitizenID], [Address], [Status])" +
-                    " \r\nVALUES\r\n(N'"+ textBox_Hovaten.Text +"',"+ gender + ",'"+ textBox_ngaysinh.Text +"','"+ textBox_sdt.Text +"','"+textBox_email.Text+"','"+textBox_cccd.Text+"',N'"+textBox_diachi.Text+"',1)" +
+                    " \r\nVALUES\r\n(N'"+ textBox_Hovaten.Text +"',"+ gender + ",'"+ dateDOB.Value +"','"+ textBox_sdt.Text +"','"+textBox_email.Text+"','"+textBox_cccd.Text+"',N'"+textBox_diachi.Text+"',1)" +
                     "DECLARE @DeveloperID int = SCOPE_IDENTITY();\r\nINSERT INTO certificate (DeveloperID, [certificateDetailsName])" +
                     "\r\nVALUES (@DeveloperID, N'"+ comboBox_Bangcap.Text +"')";
                 cmd.ExecuteNonQuery();
@@ -55,6 +60,11 @@ namespace QLNS
         {
             //conn = new SqlConnection(str);
             conn.Open();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
