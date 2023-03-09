@@ -106,6 +106,8 @@ namespace QLNS
             try
             {
                 conn.Open();
+                // Kiểm tra có insert được không
+                bool check = false;
 
                 // Lặp qua các dòng trong DataGridView và thêm dữ liệu vào CSDL
                 for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
@@ -114,10 +116,10 @@ namespace QLNS
                     String name = dataGridView1.Rows[i].Cells[0].Value.ToString();
                     String gender = dataGridView1.Rows[i].Cells[1].Value.ToString();
                     String birthday = dataGridView1.Rows[i].Cells[2].Value.ToString();
-                    String cccd = dataGridView1.Rows[i].Cells[3].Value.ToString();
-                    String address = dataGridView1.Rows[i].Cells[4].Value.ToString();
-                    String phone = dataGridView1.Rows[i].Cells[5].Value.ToString();
-                    String email = dataGridView1.Rows[i].Cells[6].Value.ToString();
+                    String phone = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                    String email = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                    String cccd = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                    String address = dataGridView1.Rows[i].Cells[6].Value.ToString();
                     String status = dataGridView1.Rows[i].Cells[7].Value.ToString();
                     String certificate = dataGridView1.Rows[i].Cells[8].Value.ToString();
 
@@ -133,7 +135,19 @@ namespace QLNS
                     else
                         _status = 0;
 
+                    // Tạo câu lệnh SQL để kiểm tra xem cccd đã tồn tại hay chưa
+                    string checkExistSql = "SELECT COUNT(*) FROM [dbo].[Developer] WHERE [CitizenID] = @CCCD";
+                    SqlCommand checkExistCmd = new SqlCommand(checkExistSql, conn);
+                    checkExistCmd.Parameters.AddWithValue("@CCCD", cccd);
+                    int count = (int)checkExistCmd.ExecuteScalar();
 
+                    // Nếu cccd đã tồn tại thì bỏ qua và chuyển sang dòng tiếp theo
+                    if (count > 0)
+                    {
+                        continue;
+                    }
+
+                    check = true;
                     // Tạo câu lệnh SQL với tham số
                     string sql = "INSERT INTO [dbo].[Developer] ([Name], [Gender], [Birthday], [Phone], [Email], [CitizenID], [Address], [Status]) " +
                                  "VALUES (@Name, @Gender, @Birthday, @CCCD, @Address, @Phone, @Email, @Status) " +
@@ -156,11 +170,14 @@ namespace QLNS
                     // Thực thi câu lệnh SQL
                     command.ExecuteNonQuery();
                 }
-                MessageBox.Show("Đã thêm thành công!!");
+                if(check)
+                    MessageBox.Show("Đã thêm thành công!!");
+                else
+                    throw new Exception("Đã tồn tại dữ liệu, vui lòng kiểm tra lại sau!!!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {
