@@ -329,7 +329,6 @@
             this.dateDOB.Name = "dateDOB";
             this.dateDOB.Size = new System.Drawing.Size(182, 20);
             this.dateDOB.TabIndex = 74;
-            this.dateDOB.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // Form2
             // 
