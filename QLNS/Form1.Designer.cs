@@ -40,9 +40,10 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.btnExcelImport = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.btnExportExcel = new System.Windows.Forms.ToolStripButton();
             this.trangChủToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
@@ -107,7 +108,7 @@
             this.toolStripButton3,
             this.toolStripButton4,
             this.btnExcelImport,
-            this.toolStripButton5});
+            this.btnExportExcel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(888, 43);
@@ -182,17 +183,16 @@
             this.btnExcelImport.Text = "Nhập Excel";
             this.btnExcelImport.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
-            // toolStripButton5
+            // btnExportExcel
             // 
-            this.toolStripButton5.AutoSize = false;
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Enabled = false;
-            this.toolStripButton5.Image = global::QLNS.Properties.Resources.OIP;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(50, 50);
-            this.toolStripButton5.Text = "Xuất Excel";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click_2);
+            this.btnExportExcel.AutoSize = false;
+            this.btnExportExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnExportExcel.Image = global::QLNS.Properties.Resources.OIP;
+            this.btnExportExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(50, 50);
+            this.btnExportExcel.Text = "Xuất Excel";
+            this.btnExportExcel.Click += new System.EventHandler(this.toolStripButton5_Click_2);
             // 
             // trangChủToolStripMenuItem1
             // 
@@ -251,9 +251,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton_Remove;
         private System.Windows.Forms.ToolStripButton btnExcelImport;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton btnExportExcel;
         private System.Windows.Forms.ToolStripMenuItem trangChủToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

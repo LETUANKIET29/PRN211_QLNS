@@ -34,3 +34,4 @@ C:\Users\Lenovo\Desktop\Phúc Bùi\FPT University\Sem 5\PRN211\Project\PRN211_QL
 C:\Users\Lenovo\Desktop\Phúc Bùi\FPT University\Sem 5\PRN211\Project\PRN211_QLNS\QLNS\obj\Debug\QLNS.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\Phúc Bùi\FPT University\Sem 5\PRN211\Project\PRN211_QLNS\QLNS\bin\Debug\System.Data.SqlClient.dll
 C:\Users\Lenovo\Desktop\Phúc Bùi\FPT University\Sem 5\PRN211\Project\PRN211_QLNS\QLNS\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Lenovo\Desktop\Phúc Bùi\FPT University\Sem 5\PRN211\Project\PRN211_QLNS\QLNS\obj\Debug\QLNS.csproj.ResolveComReference.cache
