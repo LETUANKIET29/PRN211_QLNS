@@ -6,10 +6,10 @@ public static class ConnectionHelper
 
     static ConnectionHelper()
     {
-        string server = "MAOTOU\\SQLEXPRESS";
-        string database = "QLNS_v2";
-        string userId = "sa";
-        string password = "12345";
+        string server = QLNS.Config.Server;
+        string database = QLNS.Config.Database;
+        string userId = QLNS.Config.UserID;
+        string password = QLNS.Config.Password;
 
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         builder.DataSource = server;

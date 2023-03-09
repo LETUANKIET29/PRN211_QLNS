@@ -14,9 +14,10 @@ namespace QLNS
     public partial class FormAdmin : Form
     {
         // khởi tạo kết nối
-        SqlConnection conn;
+        //SqlConnection conn;
         SqlCommand cmd;
-        String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
+        SqlConnection conn = ConnectionHelper.GetConnection();
+        //String str = "Data Source=MAOTOU\\SQLEXPRESS;Initial Catalog=QLNS_v2;Integrated Security=True";
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -55,9 +56,10 @@ namespace QLNS
 
         private void FormAdmin_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(str);
+            //conn = new SqlConnection(str);
             conn.Open();
             loadData();
+            conn.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -150,9 +152,10 @@ namespace QLNS
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-            conn = new SqlConnection(str);
+            //conn = new SqlConnection(str);
             conn.Open();
             loadData();
+            conn.Close();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -200,9 +203,114 @@ namespace QLNS
             f4.Show();
         }
 
+        private void ToExcel(DataGridView dataGridView1, string fileName)
+        {
+            //khai báo thư viện hỗ trợ Microsoft.Office.Interop.Excel
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel.Worksheet worksheet;
+            try
+            {
+                //Tạo đối tượng COM.
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
+                //tạo mới một Workbooks bằng phương thức add()
+                workbook = excel.Workbooks.Add(Type.Missing);
+                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
+                //đặt tên cho sheet
+                worksheet.Name = "Quản lý Developers";
+
+                if (dataGridView1 != null)
+                {
+                    // export headers in the first row
+                    for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                    {
+                        worksheet.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                    }
+
+                    // export data in the remaining rows
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                        {
+                            worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                        }
+                    }
+                }
+
+                // Thiết lập độ rộng cho các cột.
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    Microsoft.Office.Interop.Excel.Range columnRange = (Microsoft.Office.Interop.Excel.Range)worksheet.Cells[1, i + 1];
+                    columnRange.EntireColumn.AutoFit();
+                }
+
+                // sử dụng phương thức SaveAs() để lưu workbook với filename
+                workbook.SaveAs(fileName);
+                //đóng workbook
+                workbook.Close();
+                excel.Quit();
+                MessageBox.Show("Xuất dữ liệu ra Excel thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                workbook = null;
+                worksheet = null;
+            }
+        }
+
         private void toolStripButton5_Click_2(object sender, EventArgs e)
         {
+            string defaultFileName = "Developer-Export.xlsx"; // Tên file mặc định
 
+            // Khởi tạo SaveFileDialog với tên file mặc định
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel Files|*.xlsx;*.xls";
+            saveFileDialog1.Title = "Save Developer-Export";
+            saveFileDialog1.FileName = defaultFileName;
+            
+            // Nếu người dùng chọn OK
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // Gọi hàm ToExcel() với tham số là dtgDSHS và tên file từ SaveFileDialog
+                ToExcel(dataGridView1, saveFileDialog1.FileName);
+            }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                // Tạo câu lệnh SQL với chuỗi tìm kiếm đầy đủ và truyền giá trị vào trước đó
+                string sql = "Select * From Developer Where Name Like '%@Name%'";
+                SqlCommand command = new SqlCommand(sql, conn);
+                command.Parameters.AddWithValue("@Name", txtSearch.Text);
+
+                // Thực thi câu lệnh SQL
+                command.ExecuteNonQuery();
+                loadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không tìm thấy, vui lòng thử lại" + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi truy vấn
+                conn.Close();
+            }
         }
     }
 }
